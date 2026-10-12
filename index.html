@@ -1,0 +1,521 @@
+<!DOCTYPE html><html lang="en"><head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jewelry Store</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI',sans-serif;
+}
+
+body{
+    background:#fffaf3;
+    color:#111827;
+}
+
+.hero{
+    min-height:100vh;
+    background:
+    linear-gradient(rgba(20,10,5,.65),rgba(20,10,5,.78)),
+    url('https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?auto=format&fit=crop&w=1600&q=80');
+    background-size:cover;
+    background-position:center;
+    color:#fff;
+}
+
+.navbar{
+    width:90%;
+    max-width:1200px;
+    margin:auto;
+    padding:25px 0;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.logo{
+    font-size:30px;
+    font-weight:800;
+    color:#f5c542;
+}
+
+.navbar ul{
+    display:flex;
+    list-style:none;
+    gap:30px;
+}
+
+.navbar a{
+    color:#fff;
+    text-decoration:none;
+    font-weight:600;
+}
+
+.hero-content{
+    width:90%;
+    max-width:1200px;
+    margin:auto;
+    padding-top:120px;
+}
+
+.hero-content span{
+    display:inline-block;
+    background:rgba(245,197,66,.22);
+    color:#fff7cc;
+    padding:10px 18px;
+    border-radius:30px;
+    margin-bottom:20px;
+}
+
+.hero-content h1{
+    font-size:66px;
+    max-width:780px;
+    line-height:1.1;
+    margin-bottom:20px;
+}
+
+.hero-content p{
+    max-width:650px;
+    font-size:19px;
+    line-height:1.8;
+    color:#f3f4f6;
+    margin-bottom:35px;
+}
+
+.btn{
+    display:inline-block;
+    background:#c99700;
+    color:#fff;
+    padding:15px 35px;
+    border-radius:8px;
+    text-decoration:none;
+    font-weight:700;
+    transition:.3s;
+}
+
+.btn:hover{
+    background:#a17a00;
+    transform:translateY(-3px);
+}
+
+section{
+    padding:90px 8%;
+}
+
+.section-title{
+    text-align:center;
+    margin-bottom:60px;
+}
+
+.section-title h2{
+    font-size:42px;
+    margin-bottom:12px;
+}
+
+.section-title p{
+    color:#64748b;
+}
+
+.categories{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:25px;
+}
+
+.category{
+    background:#fff;
+    padding:35px;
+    border-radius:20px;
+    text-align:center;
+    box-shadow:0 10px 35px rgba(0,0,0,.08);
+    transition:.3s;
+}
+
+.category:hover{
+    transform:translateY(-8px);
+    background:#fff3c4;
+}
+
+.category .icon{
+    font-size:45px;
+    margin-bottom:15px;
+}
+
+.about{
+    background:#fff;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:50px;
+    align-items:center;
+}
+
+.about img{
+    width:100%;
+    border-radius:25px;
+    box-shadow:0 15px 40px rgba(0,0,0,.12);
+}
+
+.about h2{
+    font-size:42px;
+    margin-bottom:20px;
+}
+
+.about p{
+    color:#64748b;
+    line-height:1.8;
+    margin-bottom:20px;
+}
+
+.features{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:15px;
+}
+
+.feature{
+    background:#fff7db;
+    padding:18px;
+    border-radius:15px;
+    border-left:4px solid #c99700;
+}
+
+.products-section{
+    background:#fffaf3;
+}
+
+.products{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:25px;
+}
+
+.product{
+    background:#fff;
+    border-radius:20px;
+    overflow:hidden;
+    box-shadow:0 10px 35px rgba(0,0,0,.08);
+    transition:.3s;
+}
+
+.product:hover{
+    transform:translateY(-8px);
+}
+
+.product img{
+    width:100%;
+    height:270px;
+    object-fit:cover;
+}
+
+.product-content{
+    padding:20px;
+}
+
+.product-content h3{
+    margin-bottom:8px;
+}
+
+.product-content p{
+    color:#64748b;
+    margin-bottom:10px;
+}
+
+.price{
+    font-size:22px;
+    color:#c99700;
+    font-weight:bold;
+}
+
+.offer{
+    background:linear-gradient(135deg,#c99700,#3b2f12);
+    color:#fff;
+    display:grid;
+    grid-template-columns:1.2fr .8fr;
+    gap:40px;
+    align-items:center;
+}
+
+.offer h2{
+    font-size:45px;
+    margin-bottom:15px;
+}
+
+.offer p{
+    line-height:1.8;
+    margin-bottom:25px;
+    color:#fff7cc;
+}
+
+.offer-box{
+    background:#fff;
+    color:#111827;
+    padding:35px;
+    border-radius:20px;
+    text-align:center;
+}
+
+.discount{
+    font-size:55px;
+    font-weight:bold;
+    color:#c99700;
+}
+
+.stats{
+    background:#111827;
+    color:#fff;
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:20px;
+    text-align:center;
+}
+
+.stats h3{
+    color:#f5c542;
+    font-size:45px;
+}
+
+.stats p{
+    color:#cbd5e1;
+}
+
+.cta{
+    text-align:center;
+    background:#fff;
+}
+
+.cta h2{
+    font-size:45px;
+    margin-bottom:15px;
+}
+
+.cta p{
+    color:#64748b;
+    margin-bottom:25px;
+    font-size:18px;
+}
+
+footer{
+    background:#020617;
+    color:#cbd5e1;
+    text-align:center;
+    padding:25px;
+}
+
+@media(max-width:900px){
+    .categories,
+    .about,
+    .features,
+    .products,
+    .offer,
+    .stats{
+        grid-template-columns:1fr;
+    }
+
+    .navbar ul{
+        display:none;
+    }
+
+    .hero-content h1{
+        font-size:42px;
+    }
+
+    section{
+        padding:60px 6%;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="hero">
+<nav class="navbar">
+<div class="logo">RoyalGemms</div>
+
+<ul>
+<li><a href="#">Home</a></li>
+<li><a href="#">Collections</a></li>
+<li><a href="#">Rings</a></li>
+<li><a href="#">Offers</a></li>
+<li><a href="#">Contact</a></li>
+</ul>
+</nav>
+
+<div class="hero-content">
+<span>Luxury Jewelry Collection</span>
+<h1>Elegant Jewelry For Every Beautiful Moment</h1>
+<p>
+Discover premium rings, necklaces, earrings, bracelets, bridal jewelry,
+and timeless ornaments crafted with elegance and perfection.
+</p>
+<a href="#" class="btn">Explore Collection</a>
+</div>
+</div>
+
+<section>
+<div class="section-title">
+<h2>Shop By Category</h2>
+<p>Beautiful jewelry pieces for every style and occasion</p>
+</div>
+
+<div class="categories">
+<div class="category">
+<div class="icon">💍</div>
+<h3>Rings</h3>
+</div>
+
+<div class="category">
+<div class="icon">📿</div>
+<h3>Necklaces</h3>
+</div>
+
+<div class="category">
+<div class="icon">✨</div>
+<h3>Earrings</h3>
+</div>
+
+<div class="category">
+<div class="icon">👑</div>
+<h3>Bridal Sets</h3>
+</div>
+</div>
+</section>
+
+<section class="about">
+<div>
+<img src="https://images.unsplash.com/photo-1605100804763-247f67b3557e?auto=format&fit=crop&w=900&q=80" alt="Jewelry Store">
+</div>
+
+<div>
+<h2>Crafted With Beauty, Purity & Precision</h2>
+<p>
+RoyalGems offers beautifully designed jewelry made for weddings,
+celebrations, gifting, and everyday elegance.
+</p>
+<p>
+From classic gold designs to modern diamond-inspired pieces, our collection
+adds sparkle to every special moment.
+</p>
+
+<div class="features">
+<div class="feature">
+<h4>✔ Premium Designs</h4>
+<p>Elegant styles for modern and traditional looks.</p>
+</div>
+
+<div class="feature">
+<h4>✔ Fine Craftsmanship</h4>
+<p>Beautiful finishing with attention to detail.</p>
+</div>
+
+<div class="feature">
+<h4>✔ Bridal Collection</h4>
+<p>Exclusive jewelry sets for weddings and events.</p>
+</div>
+
+<div class="feature">
+<h4>✔ Trusted Quality</h4>
+<p>Reliable products with beautiful presentation.</p>
+</div>
+</div>
+</div>
+</section>
+
+<section class="products-section">
+<div class="section-title">
+<h2>Best Selling Jewelry</h2>
+<p>Most loved pieces from our premium collection</p>
+</div>
+
+<div class="products">
+<div class="product">
+<img src="https://images.unsplash.com/photo-1603561591411-07134e71a2a9?auto=format&fit=crop&w=700&q=80" alt="Gold Ring">
+<div class="product-content">
+<h3>Elegant Gold Ring</h3>
+<p>Classic ring for daily and occasion wear.</p>
+<div class="price">₹4,999</div>
+</div>
+</div>
+
+<div class="product">
+<img src="https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&w=700&q=80" alt="Necklace">
+<div class="product-content">
+<h3>Designer Necklace</h3>
+<p>Beautiful necklace for festive styling.</p>
+<div class="price">₹12,999</div>
+</div>
+</div>
+
+<div class="product">
+<img src="https://images.unsplash.com/photo-1617038220319-276d3cfab638?auto=format&fit=crop&w=700&q=80" alt="Earrings">
+<div class="product-content">
+<h3>Diamond Look Earrings</h3>
+<p>Elegant shine for every outfit.</p>
+<div class="price">₹3,499</div>
+</div>
+</div>
+
+<div class="product">
+<img src="https://images.unsplash.com/photo-1611591437281-460bfbe1220a?auto=format&fit=crop&w=700&q=80" alt="Bracelet">
+<div class="product-content">
+<h3>Luxury Bracelet</h3>
+<p>Stylish bracelet with premium finish.</p>
+<div class="price">₹5,999</div>
+</div>
+</div>
+</div>
+</section>
+
+<section class="offer">
+<div>
+<h2>Exclusive Jewelry Sale</h2>
+<p>
+Shop rings, necklaces, earrings, bracelets, and bridal sets with special festive offers.
+</p>
+<a href="#" class="btn">Shop Offers</a>
+</div>
+
+<div class="offer-box">
+<h3>Limited Time Offer</h3>
+<div class="discount">20% OFF</div>
+<p>On selected jewelry collections</p>
+</div>
+</section>
+
+<section class="stats">
+<div>
+<h3>25K+</h3>
+<p>Happy Customers</p>
+</div>
+
+<div>
+<h3>1000+</h3>
+<p>Jewelry Designs</p>
+</div>
+
+<div>
+<h3>4.9</h3>
+<p>Customer Rating</p>
+</div>
+
+<div>
+<h3>15+</h3>
+<p>Years Experience</p>
+</div>
+</section>
+
+<section class="cta">
+<h2>Find Your Perfect Jewelry Piece</h2>
+<p>Explore elegant jewelry designed to make every moment shine.</p>
+<a href="#" class="btn">Start Shopping</a>
+</section>
+
+<footer>
+© 2026 Royal Jewelry Gemms Shop. All Rights Reserved.
+</footer>
+
+
+</body></html>
